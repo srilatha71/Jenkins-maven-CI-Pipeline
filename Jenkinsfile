@@ -25,5 +25,16 @@ pipeline {
                 sh 'mvn test'
             }
         }
+        stage('Package') {
+            steps {
+                sh 'mvn package'
+            }
+        }  
+    }
+    post {
+        always {
+            echo "Archiving JAR file..."
+            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+        }
     }
 }
