@@ -4,17 +4,23 @@ pipeline {
     stages {
         stage('Git download') {
             steps {
-                echo 'Download git code.'
-                git 'https://github.com/your-repo/hello-world-maven.git'
-                echo 'Downloaded the code completed.'
+                echo 'Downloading git code...'
+
+                git url: 'https://github.com/<your-username>/<your-repo>.git',
+                    branch: 'main',
+                    credentialsId: 'github-token'
+
+                echo 'Download completed.'
             }
         }
+
         stage('Build') {
             steps {
                 sh 'mvn clean install'
             }
         }
-       stage('Test') {
+
+        stage('Test') {
             steps {
                 sh 'mvn test'
             }
