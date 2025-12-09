@@ -5,7 +5,7 @@ pipeline {
         stage('Git download') {
             steps {
                 echo 'Download git code.'
-                git 'https://github.com/your-repo/hello-world-maven'
+                git 'https://github.com/your-repo/hello-world-maven.git'
                 echo 'Downloaded the code completed.'
             }
         }
