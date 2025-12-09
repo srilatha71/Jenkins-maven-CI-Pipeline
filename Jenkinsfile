@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Downloading git code...'
 
-                git url: 'https://github.com/<your-username>/<your-repo>.git',
+                git url: 'https://github.com/srilatha71/Jenkins-maven-CI-Pipeline.git',
                     branch: 'main',
                     credentialsId: 'github-token'
 
